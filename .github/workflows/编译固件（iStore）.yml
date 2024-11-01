@@ -20,11 +20,14 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
+  PACKAGE_SOC: s905d
+  KERNEL_VERSION_NAME: 6.1.y_6.6.y
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config-istore
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2-istore.sh
   TZ: Asia/Shanghai
+  CACHE_TOOLCHAIN: true
 
 jobs:
   build:
@@ -101,6 +104,19 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        echo "OPENWRT_PATH=/workdir/openwrt" >> $GITHUB_ENV
+
+    - name: Check Scripts
+      run: |
+        find ./ -maxdepth 3 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
+
+    - name: Cache Toolchain
+      if: env.CACHE_TOOLCHAIN == 'true'
+      uses: HiGarfield/cachewrtbuild@main
+      with:
+        ccache: false
+        mixkey: ${{ env.REPO_URL }}-${{ env.REPO_BRANCH }}-${{ env.PACKAGE_SOC }}-${{ env.KERNEL_VERSION_NAME }}
+        prefix: ${{ env.OPENWRT_PATH }}
 
     - name: 加载自定义feeds
       run: |
@@ -169,10 +185,10 @@ jobs:
       env:
         WHOAMI: deng
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
-        PACKAGE_SOC: s905d
+        PACKAGE_SOC: ${{ env.PACKAGE_SOC }}
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_stable
-        KERNEL_VERSION_NAME: 6.1.y_6.6.y
+        KERNEL_VERSION_NAME: ${{ env.KERNEL_VERSION_NAME }}
 
     - name: 发布固件
       uses: ncipollo/release-action@v1
