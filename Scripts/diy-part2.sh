@@ -58,17 +58,14 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblocknetease
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/small-package/luci-app-openvpn-server
 rm -rf package/small-package/openvpn-easy-rsa-whisky
-rm -rf package/small-package/luci-app-dogcom
-rm -rf package/small-package/luci-app-onliner
-rm -rf package/small-package/luci-app-wrtbwmon
-rm -rf package/small-package/wrtbwmon
+#rm -rf package/small-package/luci-app-wrtbwmon
+#rm -rf package/small-package/wrtbwmon
 rm -rf package/small-package/luci-app-koolproxyR
 rm -rf package/small-package/luci-app-godproxy
 rm -rf package/small-package/luci-app-argon*
 rm -rf package/small-package/luci-theme-argon*
 rm -rf package/small-package/luci-app-amlogic
 rm -rf package/small-package/luci-app-unblockneteasemusic
-rm -rf package/small-package/natflow
 rm -rf package/small-package/upx-static
 rm -rf package/small-package/upx
 rm -rf package/small-package/firewall*
@@ -76,7 +73,7 @@ rm -rf package/small-package/opkg
 rm -rf package/feeds/packages/aliyundrive-webdav
 rm -rf feeds/packages/multimedia/aliyundrive-webdav
 rm -rf package/feeds/packages/perl-xml-parser
-#rm -rf package/feeds/packages/lrzsz
+rm -rf package/feeds/packages/lrzsz
 rm -rf package/feeds/packages/xfsprogs
 # 其他调整
 NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
