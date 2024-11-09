@@ -25,7 +25,7 @@ jobs:
       - name: Delete Old Releases
         uses: dev-drprasad/delete-older-releases@master
         with:
-          keep_latest: ${{inputs.NUMBER || '0'}}
+          keep_latest: ${{inputs.NUMBER || '2'}}
           delete_tags: true
 
       - name: Delete Old Workflows
