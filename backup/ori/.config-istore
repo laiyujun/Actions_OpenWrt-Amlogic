@@ -4763,8 +4763,8 @@ CONFIG_PACKAGE_luci-newapi=y
 # CONFIG_PACKAGE_luci-app-acme is not set
 # CONFIG_PACKAGE_luci-app-adblock is not set
 # CONFIG_PACKAGE_luci-app-adbyby-plus is not set
-CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary=y
+# CONFIG_PACKAGE_luci-app-adguardhome is not set
+# CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
 # CONFIG_PACKAGE_luci-app-advanced is not set
 # CONFIG_PACKAGE_luci-app-advanced-reboot is not set
 # CONFIG_PACKAGE_luci-app-ahcp is not set
@@ -4940,19 +4940,20 @@ CONFIG_PACKAGE_luci-app-passwall=y
 #
 CONFIG_PACKAGE_luci-app-passwall_Iptables_Transparent_Proxy=y
 # CONFIG_PACKAGE_luci-app-passwall_Nftables_Transparent_Proxy is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG is not set
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_GO is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
@@ -4960,22 +4961,22 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
 # end of Configuration
 
-CONFIG_PACKAGE_luci-app-passwall2=y
+# CONFIG_PACKAGE_luci-app-passwall2 is not set
 
 #
 # Configuration
 #
-CONFIG_PACKAGE_luci-app-passwall2_Transparent_Proxy=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Brook=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Hysteria=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_IPv6_Nat=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Server=y
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Brook is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Hysteria is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_IPv6_Nat is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_NaiveProxy is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Server is not set
 # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client is not set
 # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server is not set
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server=y
-CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs=y
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_ShadowsocksR_Libev_Server is not set
+# CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Simple_Obfs is not set
 # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_V2ray is not set
 # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_V2ray_Plugin is not set
 # end of Configuration
@@ -5019,7 +5020,7 @@ CONFIG_PACKAGE_luci-app-serverchan=y
 # CONFIG_PACKAGE_luci-app-shutdown is not set
 # CONFIG_PACKAGE_luci-app-siitwizard is not set
 # CONFIG_PACKAGE_luci-app-simple-adblock is not set
-CONFIG_PACKAGE_luci-app-smartdns=y
+# CONFIG_PACKAGE_luci-app-smartdns is not set
 # CONFIG_PACKAGE_luci-app-sms-tool is not set
 # CONFIG_PACKAGE_luci-app-snmpd is not set
 # CONFIG_PACKAGE_luci-app-socat is not set
