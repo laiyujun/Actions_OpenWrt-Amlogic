@@ -21,7 +21,6 @@
 ## 通用版luci适合18.06与19.07
 # echo 'src-git small8 https://github.com/kenzok8/small-package' >>feeds.conf.default
 
-
 ## 解除系统限制
 ulimit -u 10000
 ulimit -n 4096

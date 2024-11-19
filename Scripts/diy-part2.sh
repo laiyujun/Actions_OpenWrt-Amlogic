@@ -12,8 +12,14 @@
 
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings    # 设置密码为空
 
-# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
+# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+
+#修改默认主题
+sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
+
+#修改immortalwrt.lan关联IP
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.2.250/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 
 # Modify some code adaptation
 #sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
@@ -25,7 +31,7 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.2.250）
-sed -i 's/192.168.1.1/192.168.2.250/g' package/base-files/files/bin/config_generate
+sed -i 's/192\.168\.[0-9]*\.[0-9]*/192.168.2.250/g' package/base-files/files/bin/config_generate
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
 # sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
@@ -39,42 +45,40 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
 
 # 拉取软件包
-
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
-git clone https://github.com/kenzok8/small-package package/small-package
+#git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+#git clone https://github.com/kenzok8/small-package package/small-package
 # git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng.git package/luci-app-chinadns-ng
 # svn co https://github.com/immortalwrt-collections/openwrt-gowebdav/trunk/luci-app-gowebdav package/luci-app-gowebdav
 # svn co https://github.com/immortalwrt-collections/openwrt-gowebdav/trunk/gowebdav package/gowebdav
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
-svn co https://github.com/kiddin9/openwrt-packages/trunk/UnblockNeteaseMusic-Go package/UnblockNeteaseMusic-Go
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic-go package/luci-app-unblockneteasemusic-go
 
 
 # 删除重复包
 
 # rm -rf feeds/luci/applications/luci-app-netdata
-#rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf package/small-package/luci-app-openvpn-server
-rm -rf package/small-package/openvpn-easy-rsa-whisky
-rm -rf package/small-package/luci-app-wrtbwmon
-rm -rf package/small-package/wrtbwmon
-rm -rf package/small-package/luci-app-koolproxyR
-rm -rf package/small-package/luci-app-godproxy
-#rm -rf package/small-package/luci-app-argon*
-#rm -rf package/small-package/luci-theme-argon*
-rm -rf package/small-package/luci-app-amlogic
-rm -rf package/small-package/luci-app-unblockneteasemusic
-rm -rf package/small-package/upx-static
-rm -rf package/small-package/upx
-rm -rf package/small-package/firewall*
-rm -rf package/small-package/opkg
-rm -rf package/feeds/packages/aliyundrive-webdav
-rm -rf feeds/packages/multimedia/aliyundrive-webdav
-rm -rf package/feeds/packages/perl-xml-parser
-rm -rf package/feeds/packages/lrzsz
-rm -rf package/feeds/packages/xfsprogs
+##rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf package/small-package/luci-app-openvpn-server
+#rm -rf package/small-package/openvpn-easy-rsa-whisky
+#rm -rf package/small-package/luci-app-wrtbwmon
+#rm -rf package/small-package/wrtbwmon
+#rm -rf package/small-package/luci-app-koolproxyR
+#rm -rf package/small-package/luci-app-godproxy
+##rm -rf package/small-package/luci-app-argon*
+##rm -rf package/small-package/luci-theme-argon*
+#rm -rf package/small-package/luci-app-amlogic
+#rm -rf package/small-package/luci-app-unblockneteasemusic
+#rm -rf package/small-package/upx-static
+#rm -rf package/small-package/upx
+#rm -rf package/small-package/firewall*
+#rm -rf package/small-package/opkg
+#rm -rf package/feeds/packages/aliyundrive-webdav
+#rm -rf feeds/packages/multimedia/aliyundrive-webdav
+#rm -rf package/feeds/packages/perl-xml-parser
+#rm -rf package/feeds/packages/lrzsz
+#rm -rf package/feeds/packages/xfsprogs
+
 # 其他调整
 NAME=$"package/luci-app-unblockneteasemusic/root/usr/share/unblockneteasemusic" && mkdir -p $NAME/core
 curl 'https://api.github.com/repos/UnblockNeteaseMusic/server/commits?sha=enhanced&path=precompiled' -o commits.json
