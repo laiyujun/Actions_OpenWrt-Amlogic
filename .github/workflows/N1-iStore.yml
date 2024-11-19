@@ -120,7 +120,7 @@ jobs:
       run: |
         echo "Custom Packages Here."
         chmod +x $DIY_PKG_SH
-        cd openwrt
+        cd openwrt/package/
         $GITHUB_WORKSPACE/$DIY_PKG_SH
 
     - name: 加载自定义配置
