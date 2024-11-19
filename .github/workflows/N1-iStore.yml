@@ -118,7 +118,6 @@ jobs:
 
     - name: Load Custom Packages
       run: |
-        cd openwrt
         echo "Custom Packages Here."
         chmod +x $DIY_PKG_SH
         cd openwrt
