@@ -24,6 +24,7 @@ env:
   CONFIG_FILE: Config/.config-istore
   DIY_P1_SH: Scripts/diy-part1.sh
   DIY_P2_SH: Scripts/diy-part2.sh
+  DIY_PKG_SH: Scripts/Packages.sh
   TZ: Asia/Shanghai
 
 jobs:
@@ -119,8 +120,9 @@ jobs:
       run: |
         cd openwrt
         echo "Custom Packages Here."
-
-        $GITHUB_WORKSPACE/Scripts/Packages.sh
+        chmod +x $DIY_PKG_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_PKG_SH
 
     - name: 加载自定义配置
       run: |
