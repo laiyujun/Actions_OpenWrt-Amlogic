@@ -106,6 +106,10 @@ sed -i 's#mount -t cifs#mount.cifs#g' feeds/luci/applications/luci-app-cifs-moun
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
+# node版本修复
+rm -rf feeds/packages/lang/node
+git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-24.10 feeds/packages/lang/node
+
 # mosdns
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
