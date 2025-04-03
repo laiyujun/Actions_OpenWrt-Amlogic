@@ -954,8 +954,8 @@ CONFIG_BUSYBOX_DEFAULT_FEATURE_PASSWD_WEAK_CHECK=y
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_MODUTILS_SYMBOLS is not set
 CONFIG_BUSYBOX_DEFAULT_DEFAULT_MODULES_DIR=""
 CONFIG_BUSYBOX_DEFAULT_DEFAULT_DEPMOD_FILE=""
-# CONFIG_BUSYBOX_DEFAULT_ACPID is not set
-# CONFIG_BUSYBOX_DEFAULT_FEATURE_ACPID_COMPAT is not set
+CONFIG_BUSYBOX_DEFAULT_ACPID=y
+CONFIG_BUSYBOX_DEFAULT_FEATURE_ACPID_COMPAT=y
 # CONFIG_BUSYBOX_DEFAULT_BLKDISCARD is not set
 # CONFIG_BUSYBOX_DEFAULT_BLKID is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_BLKID_TYPE is not set
@@ -2415,7 +2415,7 @@ CONFIG_PACKAGE_kmod-nfnetlink=y
 # CONFIG_PACKAGE_kmod-nft-arp is not set
 # CONFIG_PACKAGE_kmod-nft-bridge is not set
 # CONFIG_PACKAGE_kmod-nft-compat is not set
-# CONFIG_PACKAGE_kmod-nft-core is not set
+CONFIG_PACKAGE_kmod-nft-core=y
 # CONFIG_PACKAGE_kmod-nft-fib is not set
 # CONFIG_PACKAGE_kmod-nft-nat is not set
 # CONFIG_PACKAGE_kmod-nft-nat6 is not set
@@ -6941,7 +6941,7 @@ CONFIG_PACKAGE_ttyd=y
 # end of libselinux tools
 
 # CONFIG_PACKAGE_ack is not set
-# CONFIG_PACKAGE_acpid is not set
+CONFIG_PACKAGE_acpid=y
 # CONFIG_PACKAGE_adb is not set
 # CONFIG_PACKAGE_airos-dfs-reset is not set
 # CONFIG_PACKAGE_ap51-flash is not set
@@ -7296,7 +7296,7 @@ CONFIG_PACKAGE_mount-utils=y
 # CONFIG_PACKAGE_openzwave-config is not set
 # CONFIG_PACKAGE_owipcalc is not set
 # CONFIG_PACKAGE_passh is not set
-# CONFIG_PACKAGE_pcat-manager is not set
+CONFIG_PACKAGE_pcat-manager=y
 # CONFIG_PACKAGE_pciids is not set
 # CONFIG_PACKAGE_pciutils is not set
 # CONFIG_PACKAGE_pcsc-tools is not set
