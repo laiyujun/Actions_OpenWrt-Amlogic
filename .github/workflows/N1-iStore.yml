@@ -19,7 +19,7 @@ on:
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt #https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: main #master
+  REPO_BRANCH: 24.10 #master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Config/.config-istore
   DIY_P1_SH: Scripts/diy-part1.sh
