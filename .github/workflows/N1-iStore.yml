@@ -173,7 +173,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         WHOAMI: flippy
-        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*.tar.gz
+        OPENWRT_ARMSR: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d_qemu
         KERNEL_AUTO_LATEST: true
         KERNEL_REPO_URL: "ophub/kernel"
