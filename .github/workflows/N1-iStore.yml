@@ -173,11 +173,11 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         WHOAMI: flippy
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
+        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d_qemu
-        KERNEL_AUTO_LATEST: false
-       # KERNEL_REPO_URL: https://github.com/laiyujun/Actions_OpenWrt-Amlogic/tree/main/kernel
-        KERNEL_VERSION_NAME: 5.15.182_6.6.92
+        KERNEL_AUTO_LATEST: true
+        KERNEL_REPO_URL: "ophub/kernel"
+        KERNEL_VERSION_NAME: 6.6.92
 
     - name: 发布固件
       uses: ncipollo/release-action@v1
