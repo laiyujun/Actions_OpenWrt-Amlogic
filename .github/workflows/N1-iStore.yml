@@ -128,6 +128,10 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
+    - name: 显示config
+      run: |
+        cat .config
+
     - name: 下载软件包
       id: package
       run: |
@@ -154,7 +158,9 @@ jobs:
         echo "清理之前："
         df -hT
         mkdir openwrt-armvirt
-        mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
+        ll openwrt/bin/targets/*/*/*.tar.gz
+        # mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
+        mv openwrt/bin/targets/armvirt/64/*.tar.gz openwrt-armvirt/
         echo -e "\n"
         echo "列出空间占用前10的目录或文件："
         sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
