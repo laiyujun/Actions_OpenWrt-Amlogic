@@ -130,6 +130,7 @@ jobs:
 
     - name: 显示config
       run: |
+        cd openwrt
         cat .config
 
     - name: 下载软件包
