@@ -159,7 +159,7 @@ jobs:
         echo "清理之前："
         df -hT
         mkdir openwrt-armvirt
-        ll openwrt/bin/targets/*/*/*.tar.gz
+        ls -l openwrt/bin/targets/*/*/*.tar.gz
         # mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
         mv openwrt/bin/targets/armvirt/64/*.tar.gz openwrt-armvirt/
         echo -e "\n"
