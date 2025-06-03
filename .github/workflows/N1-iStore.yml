@@ -18,8 +18,8 @@ on:
     - cron: 0 16 15,28 * *
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt #https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: openwrt-24.10 #master
+  REPO_URL:  https://github.com/coolsnowwolf/lede #https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: master #openwrt-24.10
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Config/.config-istore
   DIY_P1_SH: Scripts/diy-part1.sh
