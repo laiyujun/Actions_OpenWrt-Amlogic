@@ -13,13 +13,66 @@ name: 编译固件（iStore）
 on:
   repository_dispatch:
   workflow_dispatch:
+    inputs:
+      SOURCE:
+        description: "Select the source branch"
+        required: true
+        default: "lede-master"
+        type: choice
+        options:
+          - openwrt/openwrt
+          - coolsnowwolf/lede
+          - immortalwrt/immortalwrt
+      BRANCH:
+        default: 'master'
+        required: true
+        description: '源码分支名'
+        type: choice
+        options:
+          - master
+          - main
+          - openwrt-24.10
+          - openwrt-23.05
+      OPENWRT_KERNEL:
+        description: "Select kernel version"
+        required: true
+        default: "6.1.y_6.6.y"
+        type: choice
+        options:
+          - 5.4.y
+          - 5.10.y
+          - 5.15.y
+          - 6.1.y
+          - 6.6.y
+          - 6.12.y
+          - 5.4.y_5.10.y
+          - 5.15.y_6.1.y
+          - 6.1.y_6.12.y
+          - 6.1.y_6.6.y
+          - 6.6.y_6.12.y
+      AUTO_KERNEL:
+        description: "Auto use the latest kernel"
+        required: false
+        default: true
+        type: boolean
+      KERNEL_REPO:
+        default: 'ophub/kernel'
+        required: true
+        description: '内核仓库'
+        type: choice
+        options:
+          - ophub/kernel
+          - breakingbadboy/OpenWrt
   #自动编译：每个月15/28早上4点
   schedule:
     - cron: 0 16 15,28 * *
 
+#CI权限
+permissions: write-all
+
 env:
-  REPO_URL:  https://github.com/coolsnowwolf/lede #https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: master #openwrt-24.10
+  REPO_URL:  https://github.com/${{ inputs.SOURCE }}
+  REPO_BRANCH: ${{ inputs.BRANCH }}
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Config/.config-istore
   DIY_P1_SH: Scripts/diy-part1.sh
@@ -95,8 +148,12 @@ jobs:
     - name: 克隆源码
       working-directory: /workdir
       run: |
+        # Set output information
+        echo -e "REPO_URL: [ ${REPO_URL} ]\nREPO_BRANCH: [ ${REPO_BRANCH} ]"
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        
+        # Clone source code
+        git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 加载自定义feeds
@@ -181,9 +238,9 @@ jobs:
         WHOAMI: flippy
         OPENWRT_ARMSR: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d_qemu
-        KERNEL_AUTO_LATEST: true
-        KERNEL_REPO_URL: "ophub/kernel"
-        KERNEL_VERSION_NAME: 6.6.92
+        KERNEL_AUTO_LATEST: ${{ inputs.AUTO_KERNEL }}
+        KERNEL_REPO_URL: ${{ inputs.KERNEL_REPO }}
+        KERNEL_VERSION_NAME: ${{ inputs.OPENWRT_KERNEL }}
 
     - name: 发布固件
       uses: ncipollo/release-action@v1
