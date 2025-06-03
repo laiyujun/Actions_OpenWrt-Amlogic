@@ -23,16 +23,19 @@ on:
           - openwrt/openwrt
           - coolsnowwolf/lede
           - immortalwrt/immortalwrt
+          - Lienol/openwrt
       SOURCE_BRANCH:
         default: 'master'
         required: true
         description: 'Select the source branch'
         type: choice
         options:
-          - master
           - main
+          - master
           - openwrt-24.10
           - openwrt-23.05
+          - '24.10'
+          - '23.05'
       OPENWRT_KERNEL:
         description: "Select kernel version"
         required: true
