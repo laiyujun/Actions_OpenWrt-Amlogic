@@ -14,19 +14,19 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      SOURCE:
-        description: "Select the source branch"
+      SOURCE_REPO:
+        description: "Select the source repository"
         required: true
-        default: "lede-master"
+        default: "coolsnowwolf/lede"
         type: choice
         options:
           - openwrt/openwrt
           - coolsnowwolf/lede
           - immortalwrt/immortalwrt
-      BRANCH:
+      SOURCE_BRANCH:
         default: 'master'
         required: true
-        description: '源码分支名'
+        description: 'Select the source branch'
         type: choice
         options:
           - master
@@ -58,7 +58,7 @@ on:
       KERNEL_REPO:
         default: 'ophub/kernel'
         required: true
-        description: '内核仓库'
+        description: 'Select kernel repository'
         type: choice
         options:
           - ophub/kernel
@@ -71,8 +71,8 @@ on:
 permissions: write-all
 
 env:
-  REPO_URL:  https://github.com/${{ inputs.SOURCE }}
-  REPO_BRANCH: ${{ inputs.BRANCH }}
+  REPO_URL:  https://github.com/${{ inputs.SOURCE_REPO }}
+  REPO_BRANCH: ${{ inputs.SOURCE_BRANCH }}
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Config/.config-istore
   DIY_P1_SH: Scripts/diy-part1.sh
